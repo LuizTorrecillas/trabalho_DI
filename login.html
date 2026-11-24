@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Luiz Torrecillas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="#conteudo" class="pular-link">Pular para o conteúdo principal</a>
+
+    <!-- A mesma barra de acessibilidade da página inicial -->
+    <div class="barra-acessibilidade">
+        <span>Acessibilidade:</span>
+        <button type="button" id="btn-tema" aria-pressed="false">
+            Modo claro / escuro
+        </button>
+        <button type="button" id="btn-aumentar">A+ Aumentar fonte</button>
+        <button type="button" id="btn-diminuir">A- Diminuir fonte</button>
+        <button type="button" id="btn-normal">Tamanho normal</button>
+    </div>
+
+    <header class="cabecalho">
+        <h1 class="logo">Luiz Torrecillas</h1>
+        <nav aria-label="Menu principal">
+            <ul class="menu">
+                <li><a href="index.html">Voltar ao site</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="conteudo">
+        <section class="secao-login">
+            <h2>Acessar área restrita</h2>
+            <p>
+                Página de login criada como requisito do projeto final.
+                Ainda não existe back-end: a validação é feita só no navegador.
+            </p>
+
+            <div class="card card-login">
+                <form id="form-login">
+                    <label for="usuario">Usuário ou e-mail</label>
+                    <input type="text" id="usuario" name="usuario" required>
+
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" required>
+
+                    <label class="lembrar">
+                        <input type="checkbox" id="lembrar" name="lembrar">
+                        Lembrar de mim
+                    </label>
+
+                    <button type="submit">Entrar</button>
+
+                    <!-- A mensagem de erro/sucesso aparece aqui -->
+                    <p id="aviso-login" aria-live="polite"></p>
+                </form>
+
+                <p><a href="#">Esqueci minha senha</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <p>Feito do zero por Luiz Torrecillas - 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

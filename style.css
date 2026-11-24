@@ -1,0 +1,307 @@
+
+:root {
+    --fundo: #111111;
+    --fundo-card: #1C1C1C;
+    --texto: #FFFFFF;
+    --texto-secundario: #B3B3B3;
+    --destaque: #FF8A2B;      /* laranja */
+    --texto-no-destaque: #111111;
+    --borda: #3A3A3A;
+}
+
+*/
+body.tema-claro {
+    --fundo: #FFFFFF;
+    --fundo-card: #F2F2F2;
+    --texto: #1A1A1A;
+    --texto-secundario: #595959;
+    --destaque: #6B3FA0;      /* roxo */
+    --texto-no-destaque: #FFFFFF;
+    --borda: #CCCCCC;
+}
+
+/* ---- Reset simples ---- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--fundo);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+/* ---- ACESSIBILIDADE ---- */
+
+/* Link que só aparece quando recebe o foco pelo teclado (Tab) */
+.pular-link {
+    position: absolute;
+    left: -9999px;
+}
+
+.pular-link:focus {
+    position: static;
+    display: block;
+    background-color: var(--destaque);
+    color: var(--texto-no-destaque);
+    padding: 10px;
+}
+
+/* WCAG 2.4.7: o foco do teclado precisa ser visível em todo elemento clicável */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 3px solid var(--destaque);
+    outline-offset: 2px;
+}
+
+.barra-acessibilidade {
+    background-color: var(--fundo-card);
+    padding: 10px 20px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--borda);
+}
+
+.barra-acessibilidade button {
+    background-color: transparent;
+    color: var(--texto);
+    border: 1px solid var(--borda);
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/* ---- Estrutura geral ---- */
+section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--borda);
+}
+
+h2 {
+    color: var(--destaque);
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+a {
+    color: var(--destaque);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ---- Cabeçalho ---- */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--borda);
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 20px;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+/* ---- Hero ---- */
+.hero {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.hero-texto {
+    flex: 1;          
+    min-width: 280px; 
+}
+
+.foto-perfil {
+    width: 180px;
+    height: 180px;        /* igual à largura = círculo perfeito */
+    object-fit: cover;    /* recorta o excesso em vez de distorcer */
+    border-radius: 50%;
+    flex-shrink: 0;       /* impede que o flex "amasse" a foto */
+}
+
+.selo {
+    border: 1px solid var(--destaque);
+    color: var(--destaque);
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.subtitulo {
+    font-size: 18px;
+}
+
+.botoes {
+    margin-top: 20px;
+}
+
+.botoes a {
+    display: inline-block;
+    border: 1px solid var(--destaque);
+    padding: 10px 15px;
+    margin: 0 10px 10px 0;
+    text-decoration: none;
+}
+
+/* ---- Carrossel ---- */
+.carrossel {
+    border: 1px solid var(--borda);
+    padding: 10px;
+}
+
+/* Só o slide com a classe "ativo" fica visível */
+.slide {
+    display: none;
+    width: 100%;
+}
+
+.slide.ativo {
+    display: block;
+}
+
+.carrossel-controles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.carrossel-controles button {
+    background-color: var(--destaque);
+    color: var(--texto-no-destaque);
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+/* ---- Busca ---- */
+.busca {
+    margin-bottom: 20px;
+}
+
+.busca input {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px;
+}
+
+#resultado-busca {
+    font-size: 14px;
+    color: var(--texto-secundario);
+}
+
+/* ---- Cards ---- */
+.card {
+    background-color: var(--fundo-card);
+    border: 1px solid var(--borda);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.status {
+    font-size: 12px;
+    color: var(--destaque);
+}
+
+.tags {
+    font-size: 12px;
+    color: var(--texto-secundario);
+}
+
+/* Classe usada pelo JS para esconder projetos fora da busca */
+.escondido {
+    display: none;
+}
+
+/* ---- Listas em colunas ---- */
+.lista-projetos,
+.lista-habilidades,
+.lista-contato {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+ul {
+    margin-left: 20px;
+}
+
+/* ---- Formulários ---- */
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    background-color: var(--fundo);
+    color: var(--texto);
+    border: 1px solid var(--borda);
+}
+
+button[type="submit"] {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: var(--destaque);
+    color: var(--texto-no-destaque);
+    border: none;
+    cursor: pointer;
+}
+
+/* ---- Página de login ---- */
+.card-login {
+    max-width: 400px;
+}
+
+.lembrar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.lembrar input {
+    width: auto;
+}
+
+/* ---- Rodapé ---- */
+.rodape {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: var(--texto-secundario);
+}
